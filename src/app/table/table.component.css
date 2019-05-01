@@ -29,7 +29,7 @@ tr[aria-expanded="true"] td {
   border-bottom: none;
 }
 
-tr[aria-expanded="true"] #childTR td {
+#childTR td.show {
   border-top: none;
 }
 
