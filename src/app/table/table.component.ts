@@ -32,25 +32,6 @@ export class TableComponent implements OnInit {
   onTrClick(e) {
     const tr = e.target.closest("tr");
     const isExpand = tr.getAttribute("aria-expanded") === "true";
-    /* const parentTD = e.target.closest("tr").getElementsByTagName("td");
-    const childTD = document.getElementsByClassName("collapse");
-
-    for (let i = 0; i < parentTD.length; i++) {
-      let lastTD = parentTD[parentTD.length - 1];
-
-      if (
-        lastTD &&
-        tr.querySelector("i").classList.toggle("arrow-right", isExpand)
-      ) {
-        parentTD[i].style.borderBottom = "1px solid #dee2e6";
-      } else {
-        parentTD[i].style.borderBottom = "none";
-      }
-    }
-
-    for (let i = 0; i < childTD.length; i++) {
-      childTD[i]["style"].borderTop = "none";
-    } */
 
     const ele = document
       .getElementById("expandableTable")
