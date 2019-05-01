@@ -1,0 +1,39 @@
+<div
+  class="modal"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+  *ngIf="message"
+  style="display:block!important"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirm Dialog</h5>
+      </div>
+      <div *ngIf="message?.type == 'confirm'" class="modal-body">
+        {{ message.text }}
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+          (click)="message.noFn()"
+        >
+          No
+        </button>
+        <button
+          type="button"
+          (click)="message.siFn()"
+          class="btn btn-primary"
+          data-dismiss="modal"
+        >
+          Yes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

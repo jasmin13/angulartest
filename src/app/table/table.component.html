@@ -1,0 +1,54 @@
+<div class="table-responsive table-fixhead" id="expandableTable">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th *ngFor="let configData of labels; let k = index">
+          {{ configData }}
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let row of data | async; let i = index">
+        <tr
+          data-toggle="collapse"
+          [attr.data-target]="'#collapseOne_' + i"
+          (click)="onTrClick($event)"
+        >
+          <td *ngFor="let key of keys; let j = index">
+            {{ row[key] }}
+
+            <span *ngIf="j === 0 && row[tableConfig.childKey]"
+              ><i class="arrow arrow-right"></i
+            ></span>
+          </td>
+        </tr>
+
+        <tr *ngIf="row[tableConfig.childKey]" id="childTR">
+          <td
+            colspan="16"
+            id="collapseOne_{{ i }}"
+            class="collapse"
+            data-parent="#expandableTable"
+          >
+            <table class="table table-bordered sub-table">
+              <thead>
+                <tr>
+                  <th *ngFor="let configData of childLabels">
+                    {{ configData }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td *ngFor="let childKey of childKeys">
+                    {{ row[tableConfig.childKey][childKey] }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>

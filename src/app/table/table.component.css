@@ -1,0 +1,54 @@
+.btn-dialog {
+  margin: 20px auto;
+}
+
+.table-fixhead {
+  overflow-y: auto;
+  max-height: calc(100vh - 400px);
+}
+
+.table-fixhead table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-fixhead th,
+.table-fixhead td {
+  padding: 8px 16px;
+}
+
+.table-fixhead th {
+  position: sticky;
+  top: 0;
+  background: #eee;
+  border: 1px solid #dee2e6;
+  z-index: 2;
+}
+
+tr[aria-expanded="true"] td {
+  border-bottom: none;
+}
+
+tr[aria-expanded="true"] #childTR td {
+  border-top: none;
+}
+
+.sub-table th {
+  z-index: 1;
+}
+
+.arrow-right::before {
+  content: "\f054";
+  font-family: fontawesome;
+}
+
+.arrow-right,
+.arrow-down {
+  font-style: normal;
+  cursor: pointer;
+}
+
+.arrow-down::before {
+  content: "\f078";
+  font-family: fontawesome;
+}
